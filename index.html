@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>90s Trivia Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Fresca|Inconsolata|Roboto+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+</head>
+
+<body>
+    <div class="container" id="start-page">
+        <div class="row justify-content-center">
+            <div class="col-md-19">
+                <h1>Welcome to the Music Trivia Game!</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-outline-success" id="start">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="conainer" id="game-page">
+        <div id="question">
+            <p> Question </p>
+        </div>
+        <div id="timer">
+            <div id="counter"></div>
+            <div id="btimeGauge"></div>
+            <div id="timeGauge"></div>
+        </div>
+
+        <div id="choices">
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+        </div>
+        
+    </div>
+</body>
+</html>

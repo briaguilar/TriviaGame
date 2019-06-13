@@ -1,0 +1,22 @@
+body {
+    background-image: url("https://img.pixers.pics/pho_wat(s3:700/FO/17/05/79/74/6/700_FO170579746_1d983eab022824b262fdc2c7378e68ed.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/posters-memphis-seamless-pattern-of-geometric-shapes-80-s-90-s-styles-on.jpg.jpg");
+}
+
+button {
+    margin-top: 40px;
+}
+
+h1 {
+    margin-top: 50px;
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+}
+
+#start-page {
+    margin: 0 auto;
+    margin-top: 150px;
+    background: white;
+    height: 300px;
+    text-align: center;
+    width: 60%;
+}

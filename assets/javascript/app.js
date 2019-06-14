@@ -37,15 +37,10 @@ $(document).ready(function () {
         var q = questions[runningQuestionIndex]
 
         $("#question").append("<p>" + q.quest + "</p>");
-        $("#A").append("<p>" + q.choiceA + "</p>");
-        $("#B").append("<p>" + q.choiceB + "</p>");
-        $("#C").append("<p>" + q.choiceC + "</p>");
+        $("#A").append("<input type='radio' name='radio'>" + q.choiceA + "</input>");
+        $("#B").append("<input type='radio' name='radio'>" + q.choiceB + "</input>");
+        $("#C").append("<input type='radio' name='radio'>" + q.choiceC + "</input>");
     }
-
-
-
-    // Creating variables for choices
-
 
 
     // "onclick" of the start button

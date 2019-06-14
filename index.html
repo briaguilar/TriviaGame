@@ -9,10 +9,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-
 <body>
-    <div class="container" id="start-page">
+    <div id="container">
+        <div id="start" style="display:block">
+            <h1>Welcome to the Music Trivia Game!</h1>
+            <button type="button" class="btn btn-outline-success" id="starter">Start</button>
+        </div>
+        <div id="gamePage" style="display:none">
+            <div id="question"></div>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            </div>
+            <div id="timer">
+                <div id="counter"></div>
+                <div id="btimeGauge"></div>
+                <div id="timeGauge"></div>
+            </div>
+        </div>
+        <div id="scoreContainer" style="display:none"></div>
+    </div>
+<!-- 
         <div class="row justify-content-center">
             <div class="col-md-19">
                 <h1>Welcome to the Music Trivia Game!</h1>
@@ -25,7 +45,7 @@
         </div>
     </div>
 
-    <div class="conainer" id="game-page">
+    <div class="container" id="game-page" style="display: none">
         <div id="question">
             <p> Question </p>
         </div>
@@ -40,7 +60,23 @@
             <div class="choice" id="A" onclick="checkAnswer('A')"></div>
             <div class="choice" id="A" onclick="checkAnswer('A')"></div>
         </div>
-        
-    </div>
+
+
+        <div class="container" id="scoreContainer" style="display: none">
+            <div class="row">
+                <div class="col-md-3" id="scoreFace">
+                    <img src="assets/images/pTqrkzj6c.png" id="90" height=50px;>
+                    <img src="assets/images/856550aa773911d00b76b24aaa4bc467.png" id="80" height=50px;>
+                    <img src="assets/images/119-1192333_iphone-sad-emoji-png.png" id="70" height=50px;>
+                    <img src="assets/images/kisspng-iphone-emoji-sadness-smiley-emoticon-emoji-face-5ac2d694140311.551231571522718356082.jpg"
+                        id="fail" height=50px>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+    <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>

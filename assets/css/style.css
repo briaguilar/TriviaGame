@@ -3,7 +3,7 @@ body {
 }
 
 button {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 h1 {
@@ -12,11 +12,17 @@ h1 {
     font-size: 60px;
 }
 
-#start-page {
+#start {
     margin: 0 auto;
     margin-top: 150px;
     background: white;
     height: 300px;
     text-align: center;
+    width: 60%;
+}
+
+#gamePage {
+    background: white;
+    margin: 0 auto;
     width: 60%;
 }

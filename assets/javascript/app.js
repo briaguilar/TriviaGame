@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $("#start").show()
+    $("#gamePage").hide()
+    $("#score").hide()
+
 
     // Setting global variables
     var trivia = $("#gamePage")

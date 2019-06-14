@@ -37,9 +37,14 @@ $(document).ready(function () {
         var q = questions[runningQuestionIndex]
 
         $("#question").append("<p>" + q.quest + "</p>");
+        $("#A").append("<p>" + q.choiceA + "</p>");
+        $("#B").append("<p>" + q.choiceB + "</p>");
+        $("#C").append("<p>" + q.choiceC + "</p>");
     }
 
 
+
+    // Creating variables for choices
 
 
 

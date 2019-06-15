@@ -27,6 +27,7 @@ h1 {
     margin: 0 auto;
     margin-top: 100px;
     width: 70%;
+    height: 450px;
     font-family: 'Roboto', sans-serif;
     padding: 20px 20px;
 }
@@ -37,4 +38,9 @@ h1 {
 
 #choices {
     margin-top: 60px;
+    margin-bottom: 0;
+}
+
+#next {
+    float: right;
 }

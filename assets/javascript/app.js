@@ -35,15 +35,16 @@ $(document).ready(function () {
 
     var lastQuestionIndex = questions.length - 1;
     var runningQuestionIndex = 0;
+    var q = questions[runningQuestionIndex]
 
     // Creating a renderQuestion function
     function renderQuestion() {
-        var q = questions[runningQuestionIndex]
-
         $("#question").append("<p>" + q.quest + "</p>");
-        $("#A").append("<input type='radio' name='radio'>" + q.choiceA + "</input>");
-        $("#B").append("<input type='radio' name='radio'>" + q.choiceB + "</input>");
-        $("#C").append("<input type='radio' name='radio'>" + q.choiceC + "</input>");
+        $("#A").append(q.choiceA);
+        $("#B").append(q.choiceB);
+        $("#C").append(q.choiceC);
+
+        console.log(q.correct);
     }
 
 
@@ -58,6 +59,34 @@ $(document).ready(function () {
     });
 
 
+
+    // Setting variables for radio button function
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var correct = (q.correct);
+
+    
+    // Checking answers function
+    $("input[type='radio']").on("click", function() {
+        var radioValue = $("input[name='radio']:checked").val();
+        console.log("User Answer: " + radioValue);
+        if (radioValue === correct) {
+            correctAnswers++;
+        } else {
+            incorrectAnswers++;
+        }
+
+        console.log(correctAnswers);
+        console.log(incorrectAnswers);
+    });
+
+
+    // When the "next" button is clicked
+    $("#next").on("click", function() {
+        runningQuestionIndex++;
+        $("#gamePage").empty();
+        
+    });
         
         
 

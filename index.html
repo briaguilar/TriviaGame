@@ -6,11 +6,13 @@
     <title>90s Trivia Game</title>
     <link href="https://fonts.googleapis.com/css?family=Anton|Fresca|Inconsolata|Roboto+Mono&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets\css\style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
+
 <body>
     <div id="container">
         <div id="start">
@@ -19,10 +21,17 @@
         </div>
         <div id="gamePage">
             <div id="question"></div>
+            <br>
             <div id="choices">
-                <input type='radio' name='radio' value='A'><p class="choice" id="A"></p></input>
-                <input type='radio' name='radio' value='B'><p class="choice" id="B"></p></input>
-                <input type='radio' name='radio' value='C'><p class="choice" id="C"></p></input>
+                <input type='radio' name='optradio' value='A' class="A"></input>
+                <p class="choice" id="A"></p>
+                <br>
+                <input type='radio' name='radio' value='B' class="B">
+                <p class="choice" id="B"></p></input>
+                <br>
+                <input type='radio' name='radio' value='C' class="C">
+                <p class="choice" id="C"></p></input>
+                <div id="questionNumber"></div>
             </div>
             <div id="timer">
                 <div id="counter"></div>
@@ -32,7 +41,7 @@
         </div>
         <div id="scoreContainer" style="display:none"></div>
     </div>
-<!-- 
+    <!-- 
         <div class="row justify-content-center">
             <div class="col-md-19">
                 <h1>Welcome to the Music Trivia Game!</h1>

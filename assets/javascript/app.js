@@ -30,12 +30,134 @@ $(document).ready(function () {
             choiceB: "Ice Cube",
             choiceC: "Tupac",
             correct: "A"
+        },
+        {
+            quest: "Novelty children shows were also a big hit. Which 90s TV show features characters with the name Tommy, Zack, Kimberly, Billy, Trini?",
+            choiceA: "Barney",
+            choiceB: "Rugrats",
+            choiceC: "The Mighty Morphin Power Rangers",
+            correct: "C"
+        },
+        {
+            quest: "In 1992, the Toronto Blue Jays became the first Canadian professional sports team to win what?",
+            choiceA: "World Series",
+            choiceB: "Stanley Cup",
+            choiceC: "NBA Finals",
+            correct: "A"
+        },
+        {
+            quest:"Which famous girl group of the 90s sung the theme song to the hit sketch comedy TV show, 'All That'?",
+            choiceA: "Spice Girls",
+            choiceB: "Destiny's Child",
+            choiceC: "TLC",
+            correct: "C"
+        },
+        {
+            quest:"What film won the Oscar for the Best Picture in 1995?",
+            choiceA: "Pulp Fiction",
+            choiceB: "Titanic",
+            choiceC: "Forrest Gump",
+            correct: "C"
+        },
+        {
+            quest:"What show won the Emmy for Best Comedy Series in 1994?",
+            choiceA: "Frasier",
+            choiceB: "Friends",
+            choiceC: "The Fresh Prince of Bel-Air",
+            correct: "A"
+        },
+        {
+            quest:"The toy was a gizmo rip-off that would annoy the heck out of you at night.",
+            choiceA: "Pogs",
+            choiceB: "Furby",
+            choiceC: "Cabbage Patch Kids",
+            correct: "B"
+        },
+        {
+            quest:"In 1994, music fans mourned the loss of Kurt Cobain, the lead singer of the band Nirvana. How did Cobain die?",
+            choiceA: "Car crash",
+            choiceB: "Suicide",
+            choiceC: "Plane crash",
+            correct: "B"
+        },
+        {
+            quest:"What was the worldwide best-selling single of 1998?",
+            choiceA: "Britney Spears' 'Baby One More Time'",
+            choiceB: "Whitney Houston's 'I Will Always Love You'",
+            choiceC: "Celine Dion's 'My Heart Will Go On'",
+            correct: "C"
+        },
+        {
+            quest:"Teenybopper pop was big inthe late 90s. Which teen pop idol was NOT in the 'Mickey Mouse Club'?",
+            choiceA: "Jessica Simpson",
+            choiceB: "Britney Spears",
+            choiceC: "Justin Timberlake",
+            correct: "A"
+        },
+        {
+            quest: "This horror 'documentary' gained much anticipation when it came out into theaters, which eventually spawned a sequel.",
+            choiceA: "Anaconda",
+            choiceB: "Texas Chainsaw Massacre",
+            choiceC: "The Blair Witch Project",
+            correct: "C"
+        },
+        {
+            quest: "Who won the Oscar in 1995 for Best Actor?",
+            choiceA: "Brad Pitt",
+            choiceB: "Tom Hanks",
+            choiceC: "Julia Roberts",
+            correct: "A"
+        },
+        {
+            quest: "What year was JonBenet Ramsey murdered?",
+            choiceA: "1994",
+            choiceB: "1996",
+            choiceC: "1998",
+            correct: "B"
+        },
+        {
+            quest: "In 1998, television watchers mourned as they watched the final episode of which sitcome, one that starred Julia Louis-Dreyfus, Michael Richards, and a guy named Jerry?",
+            choiceA: "Seinfeld",
+            choiceB: "Fraiser",
+            choiceC: "Friends",
+            correct: "A"
+        },
+        {
+            quest: "Which 1997 film, about a tragedy at sea in 1912, received 11 Academy Awards?",
+            choiceA: "Jaws",
+            choiceB: "Free Willy",
+            choiceC: "Titanic",
+            correct: "C"
+        },
+        {
+            quest: "On April 18, 1999, arguably the best player in National Hockey League history, Wayne Gretzky retired. With which Origin Six team was Gretzky with when he played his final game?",
+            choiceA: "Dallas Stars",
+            choiceB: "New York Rangers",
+            choiceC: "Chicago Blackhawks",
+            correct: "B"
+        },
+        {
+            quest: "These two best friends came together to write the Oscar winning movie, 'Good Will Hunting'.",
+            choiceA: "Ben Affleck and Matt Damon",
+            choiceB: "Robin Williams and Ben Affleck",
+            choiceC: "Matt Damon and Robin Williams",
+            correct: "A"
+        },
+        {
+            quest: "What movie won the 1995 People's Choice Award for Favorite Movie?",
+            choiceA: "Toy Story",
+            choiceB: "Forrest Gump",
+            choiceC: "Apollo 13",
+            correct: "B"
         }
     ]
 
 
 
 
+
+
+// QUESTIONS section    
     var lastQuestion = questions.length - 1;
     var runningQuestion = 0;
 
@@ -47,7 +169,7 @@ $(document).ready(function () {
         $("#B").append(questions[runningQuestion].choiceB);
         $("#C").append(questions[runningQuestion].choiceC);
 
-        console.log(questions[runningQuestion].correct);
+        console.log("The correct answer is: " + questions[runningQuestion].correct);
     }
 
 
@@ -56,7 +178,7 @@ $(document).ready(function () {
 
 
 
-
+// "START" button click section
     // "onclick" of the start button
     $("#starter").on("click", function startQuiz() {
         // Display only "trivia page" on click
@@ -65,10 +187,16 @@ $(document).ready(function () {
         $("#score").hide();
 
         renderQuestion();
+        $("#questionNumber").append(runningQuestion + 1)
+        
     });
 
 
 
+
+
+
+// Radio buttons for checking user answers
     // Setting variables for radio button function
     var correctAnswers = 0;
     var incorrectAnswers = 0;
@@ -84,8 +212,8 @@ $(document).ready(function () {
             incorrectAnswers++;
         }
 
-        console.log(correctAnswers);
-        console.log(incorrectAnswers);
+        console.log("Correct: "+correctAnswers);
+        console.log("Incorrect: " + incorrectAnswers);
 
         $("#question").empty();
         $("#A").empty();
@@ -93,7 +221,14 @@ $(document).ready(function () {
         $("#C").empty();
         runningQuestion++;
         renderQuestion();
+        $("#questionNumber").empty();
+        $("#questionNumber").append(runningQuestion + 1);
     });
     
+
+
+// Game Over section
+
+
 
 })

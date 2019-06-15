@@ -1,11 +1,8 @@
 $(document).ready(function () {
     $("#start").show()
     $("#gamePage").hide()
-    $("#score").hide()
+    $("#scoreContainer").hide()
 
-
-    // Setting global variables
-    var trivia = $("#gamePage")
 
 
     // Setting questions variable
@@ -46,49 +43,49 @@ $(document).ready(function () {
             correct: "A"
         },
         {
-            quest:"Which famous girl group of the 90s sung the theme song to the hit sketch comedy TV show, 'All That'?",
+            quest: "Which famous girl group of the 90s sung the theme song to the hit sketch comedy TV show, 'All That'?",
             choiceA: "Spice Girls",
             choiceB: "Destiny's Child",
             choiceC: "TLC",
             correct: "C"
         },
         {
-            quest:"What film won the Oscar for the Best Picture in 1995?",
+            quest: "What film won the Oscar for the Best Picture in 1995?",
             choiceA: "Pulp Fiction",
             choiceB: "Titanic",
             choiceC: "Forrest Gump",
             correct: "C"
         },
         {
-            quest:"What show won the Emmy for Best Comedy Series in 1994?",
+            quest: "What show won the Emmy for Best Comedy Series in 1994?",
             choiceA: "Frasier",
             choiceB: "Friends",
             choiceC: "The Fresh Prince of Bel-Air",
             correct: "A"
         },
         {
-            quest:"The toy was a gizmo rip-off that would annoy the heck out of you at night.",
+            quest: "The toy was a gizmo rip-off that would annoy the heck out of you at night.",
             choiceA: "Pogs",
             choiceB: "Furby",
             choiceC: "Cabbage Patch Kids",
             correct: "B"
         },
         {
-            quest:"In 1994, music fans mourned the loss of Kurt Cobain, the lead singer of the band Nirvana. How did Cobain die?",
+            quest: "In 1994, music fans mourned the loss of Kurt Cobain, the lead singer of the band Nirvana. How did Cobain die?",
             choiceA: "Car crash",
             choiceB: "Suicide",
             choiceC: "Plane crash",
             correct: "B"
         },
         {
-            quest:"What was the worldwide best-selling single of 1998?",
+            quest: "What was the worldwide best-selling single of 1998?",
             choiceA: "Britney Spears' 'Baby One More Time'",
             choiceB: "Whitney Houston's 'I Will Always Love You'",
             choiceC: "Celine Dion's 'My Heart Will Go On'",
             correct: "C"
         },
         {
-            quest:"Teenybopper pop was big inthe late 90s. Which teen pop idol was NOT in the 'Mickey Mouse Club'?",
+            quest: "Teenybopper pop was big inthe late 90s. Which teen pop idol was NOT in the 'Mickey Mouse Club'?",
             choiceA: "Jessica Simpson",
             choiceB: "Britney Spears",
             choiceC: "Justin Timberlake",
@@ -155,9 +152,7 @@ $(document).ready(function () {
 
 
 
-
-
-// QUESTIONS section    
+    // QUESTIONS section    
     var lastQuestion = questions.length - 1;
     var runningQuestion = 0;
 
@@ -178,25 +173,25 @@ $(document).ready(function () {
 
 
 
-// "START" button click section
+    // "START" button click section
     // "onclick" of the start button
     $("#starter").on("click", function startQuiz() {
         // Display only "trivia page" on click
         $("#start").hide();
         $("#gamePage").show();
-        $("#score").hide();
+        $("#scoreContainer").hide();
 
         renderQuestion();
         $("#questionNumber").append(runningQuestion + 1)
+
         
     });
 
 
+    
 
 
-
-
-// Radio buttons for checking user answers
+    // Radio buttons for checking user answers
     // Setting variables for radio button function
     var correctAnswers = 0;
     var incorrectAnswers = 0;
@@ -212,7 +207,7 @@ $(document).ready(function () {
             incorrectAnswers++;
         }
 
-        console.log("Correct: "+correctAnswers);
+        console.log("Correct: " + correctAnswers);
         console.log("Incorrect: " + incorrectAnswers);
 
         $("#question").empty();
@@ -223,11 +218,14 @@ $(document).ready(function () {
         renderQuestion();
         $("#questionNumber").empty();
         $("#questionNumber").append(runningQuestion + 1);
+
+        if (runningQuestion === lastQuestion) {
+            $("#start").hide();
+            $("#gamePage").hide();
+            $("#scoreContainer").show();
+        }
     });
-    
 
-
-// Game Over section
 
 
 

@@ -16,14 +16,14 @@
 <body>
     <div id="container">
         <div id="start">
-            <h1>Welcome to the Music Trivia Game!</h1>
+            <h1>Welcome to the '90s Trivia Game!</h1>
             <button type="button" class="btn btn-outline-success" id="starter">Start</button>
         </div>
         <div id="gamePage">
             <div id="question"></div>
             <br>
             <div id="choices">
-                <input type='radio' name='optradio' value='A' class="A"></input>
+                <input type='radio' name='radio' value='A' class="A"></input>
                 <p class="choice" id="A"></p>
                 <br>
                 <input type='radio' name='radio' value='B' class="B">
@@ -39,7 +39,12 @@
                 <div id="timeGauge"></div>
             </div>
         </div>
-        <div id="scoreContainer" style="display:none"></div>
+        <div id="scoreContainer">
+            <h1>Score</h1>
+            <div id="correctAnswers"></div>
+            <div id="incorrectAnswers"></div>
+            <div id="scorePercent"></div>
+        </div>
     </div>
     <!-- 
         <div class="row justify-content-center">

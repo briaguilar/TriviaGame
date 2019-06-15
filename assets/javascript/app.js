@@ -115,7 +115,7 @@ $(document).ready(function () {
         {
             quest: "In 1998, television watchers mourned as they watched the final episode of which sitcome, one that starred Julia Louis-Dreyfus, Michael Richards, and a guy named Jerry?",
             choiceA: "Seinfeld",
-            choiceB: "Fraiser",
+            choiceB: "Frasier",
             choiceC: "Friends",
             correct: "A"
         },
@@ -183,8 +183,6 @@ $(document).ready(function () {
 
         renderQuestion();
         $("#questionNumber").append(runningQuestion + 1)
-
-        
     });
 
 
@@ -229,4 +227,13 @@ $(document).ready(function () {
 
 
 
+
+
+// SCORE CONTAINER section
+    // score container variables
+    var scorePercent = correctAnswers ** 5;
+
+    $("#correctAnswers").append("You got " + correctAnswers + " right!")
+    $("#incorrectAnswers").append("You got " + incorrectAnswers + " wrong.")
+    $("#scorePercent").append("Score " + scorePercent + "%")
 })

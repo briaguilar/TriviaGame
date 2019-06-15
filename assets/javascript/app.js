@@ -7,45 +7,54 @@ $(document).ready(function () {
     // Setting global variables
     var trivia = $("#gamePage")
 
-    // Setting choice variables
-    var choiceA = $("#A")
-    var choiceB = $("#B")
-    var choiceC = $("#C")
-
-
-
 
     // Setting questions variable
-
-
     var questions = [
-        {   quest: "Who is the lead singer of Third Eye Blind?",
+        {
+            quest: "Who is the lead singer of Third Eye Blind?",
             choiceA: "Stephen Jenkins",
             choiceB: "Dave Grohl",
             choiceC: "Kurt Cobain",
             correct: "A"
         },
-        { quest: "Who is the lead singer of the Foo Fighters?",
-          choiceA: "Stephen Jenkins",
-          choiceB: "Dave Grohl",
-          choiceC: "Kurt Cobain",
-          correct: "B"
+        {
+            quest: "Who is the lead singer of the Foo Fighters?",
+            choiceA: "Stephen Jenkins",
+            choiceB: "Dave Grohl",
+            choiceC: "Kurt Cobain",
+            correct: "B"
+        },
+        {
+            quest: "Rap was just becoming well known in 90s. Which artist had the first number one rap single?",
+            choiceA: "Vanilla Ice",
+            choiceB: "Ice Cube",
+            choiceC: "Tupac",
+            correct: "A"
         }
     ]
 
-    var lastQuestionIndex = questions.length - 1;
-    var runningQuestionIndex = 0;
-    var q = questions[runningQuestionIndex]
+
+
+
+    var lastQuestion = questions.length - 1;
+    var runningQuestion = 0;
+
 
     // Creating a renderQuestion function
     function renderQuestion() {
-        $("#question").append("<p>" + q.quest + "</p>");
-        $("#A").append(q.choiceA);
-        $("#B").append(q.choiceB);
-        $("#C").append(q.choiceC);
+        $("#question").append(questions[runningQuestion].quest);
+        $("#A").append(questions[runningQuestion].choiceA);
+        $("#B").append(questions[runningQuestion].choiceB);
+        $("#C").append(questions[runningQuestion].choiceC);
 
-        console.log(q.correct);
+        console.log(questions[runningQuestion].correct);
     }
+
+
+
+
+
+
 
 
     // "onclick" of the start button
@@ -63,14 +72,13 @@ $(document).ready(function () {
     // Setting variables for radio button function
     var correctAnswers = 0;
     var incorrectAnswers = 0;
-    var correct = (q.correct);
 
-    
+
     // Checking answers function
-    $("input[type='radio']").on("click", function() {
+    $("input[type='radio']").on("click", function () {
         var radioValue = $("input[name='radio']:checked").val();
         console.log("User Answer: " + radioValue);
-        if (radioValue === correct) {
+        if (radioValue === questions[runningQuestion].correct) {
             correctAnswers++;
         } else {
             incorrectAnswers++;
@@ -78,16 +86,14 @@ $(document).ready(function () {
 
         console.log(correctAnswers);
         console.log(incorrectAnswers);
-    });
 
-
-    // When the "next" button is clicked
-    $("#next").on("click", function() {
-        runningQuestionIndex++;
-        $("#gamePage").empty();
-        
+        $("#question").empty();
+        $("#A").empty();
+        $("#B").empty();
+        $("#C").empty();
+        runningQuestion++;
+        renderQuestion();
     });
-        
-        
+    
 
 })

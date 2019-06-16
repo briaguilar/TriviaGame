@@ -170,9 +170,12 @@ $(document).ready(function () {
 
 
 
+// TIMER section
+    var timer = $("#counter")
+    var counter = 0;
+    var timeLeft = 90;
 
-
-
+   
     // "START" button click section
     // "onclick" of the start button
     $("#starter").on("click", function startQuiz() {
@@ -180,13 +183,27 @@ $(document).ready(function () {
         $("#start").hide();
         $("#gamePage").show();
         $("#scoreContainer").hide();
-
+        setInterval(timeIt, 1000);
         renderQuestion();
         $("#questionNumber").append(runningQuestion + 1)
+
+        function timeIt() {
+            counter++;
+            $("#timer").html("Time left: " + (timeLeft - counter));
+
+            if (timeLeft-counter === 0) {
+                $("#start").hide();
+                $("#gamePage").hide();
+                $("#scoreContainer").show();
+            }
+        }
+
+
     });
 
 
     
+
 
 
     // Radio buttons for checking user answers
@@ -194,6 +211,19 @@ $(document).ready(function () {
     var correctAnswers = 0;
     var incorrectAnswers = 0;
 
+
+
+    var count = 60;
+    var counter = setInterval(timer, 1000);
+    
+    function timer() {
+        count = count -1;
+        if (count <= 0) {
+            clearInterval(counter);
+        }
+    }
+
+    
 
     // Checking answers function
     $("input[type='radio']").on("click", function () {
@@ -222,18 +252,16 @@ $(document).ready(function () {
             $("#gamePage").hide();
             $("#scoreContainer").show();
         }
+        
     });
 
 
-
-
-
-
-// SCORE CONTAINER section
-    // score container variables
-    var scorePercent = correctAnswers ** 5;
-
     $("#correctAnswers").append("You got " + correctAnswers + " right!")
     $("#incorrectAnswers").append("You got " + incorrectAnswers + " wrong.")
-    $("#scorePercent").append("Score " + scorePercent + "%")
+    $("#scorePercent").append("Score: " + (correctAnswers**5) + "%")
+
+
+
+
+
 })

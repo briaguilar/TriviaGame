@@ -173,7 +173,7 @@ $(document).ready(function () {
 // TIMER section
     var timer = $("#counter")
     var counter = 0;
-    var timeLeft = 90;
+    var timeLeft = 10;
     
 
     
@@ -193,13 +193,15 @@ $(document).ready(function () {
         function timeIt() {
             counter++;
             $("#timer").html("Time left: " + (timeLeft - counter));
-        }
-
+            
             if (timeLeft-counter === 0) {
                 $("#start").hide();
                 $("#gamePage").hide();
                 $("#scoreContainer").show();
             }
+        }
+
+            
     });
 
 

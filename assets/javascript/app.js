@@ -15,13 +15,6 @@ $(document).ready(function () {
             correct: "A"
         },
         {
-            quest: "Who is the lead singer of the Foo Fighters?",
-            choiceA: "Kurt Cobain",
-            choiceB: "Dave Grohl",
-            choiceC: "Stephen Jenkins",
-            correct: "B"
-        },
-        {
             quest: "Rap was just becoming well known in 90s. Which artist had the first number one rap single?",
             choiceA: "Vanilla Ice",
             choiceB: "Ice Cube",
@@ -48,6 +41,13 @@ $(document).ready(function () {
             choiceB: "Destiny's Child",
             choiceC: "TLC",
             correct: "C"
+        },
+        {
+            quest: "Who is the lead singer of the Foo Fighters?",
+            choiceA: "Kurt Cobain",
+            choiceB: "Dave Grohl",
+            choiceC: "Stephen Jenkins",
+            correct: "B"
         },
         {
             quest: "What film won the Oscar for the Best Picture in 1995?",
@@ -173,7 +173,7 @@ $(document).ready(function () {
     // TIMER section
     var timer = $("#counter")
     var counter = 0;
-    var timeLeft = 10;
+    var timeLeft = 7;
 
 
     // "START" button click section
@@ -189,7 +189,7 @@ $(document).ready(function () {
 
         function timeIt() {
             counter++;
-            $("#timer").html("Time left: " + (timeLeft - counter));
+            $("#timer").html((timeLeft - counter) + " secs");
 
             if ((timeLeft - counter) === 0) {
                 $("#start").hide();

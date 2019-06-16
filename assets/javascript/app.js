@@ -16,9 +16,9 @@ $(document).ready(function () {
         },
         {
             quest: "Who is the lead singer of the Foo Fighters?",
-            choiceA: "Stephen Jenkins",
+            choiceA: "Kurt Cobain",
             choiceB: "Dave Grohl",
-            choiceC: "Kurt Cobain",
+            choiceC: "Stephen Jenkins",
             correct: "B"
         },
         {
@@ -185,21 +185,20 @@ $(document).ready(function () {
         $("#scoreContainer").hide();
         setInterval(timeIt, 1000);
         renderQuestion();
-        $("#questionNumber").append(runningQuestion + 1)
+        $("#questionNumber").append(runningQuestion + 1 + "/20")
 
         function timeIt() {
             counter++;
             $("#timer").html("Time left: " + (timeLeft - counter));
 
-            if (timeLeft - counter === 0) {
+            if ((timeLeft - counter) === 0) {
                 $("#start").hide();
                 $("#gamePage").hide();
                 $("#scoreContainer").show();
             }
         }
     });
-
-
+    
 
 
 
@@ -222,13 +221,13 @@ $(document).ready(function () {
         if (radioValue === questions[runningQuestion].correct) {
             correctAnswers+=1;
         } else {
-            incorrectAnswers++;
+            incorrectAnswers+=1;
         }
 
         console.log("Correct: " + correctAnswers);
-        $("#correctAnswers").text("You got " + correctAnswers + " right out of 20!");
+        $("#correctAnswers").text("You got " + correctAnswers + "/20 right!");
         console.log("Incorrect: " + incorrectAnswers);
-        $("#incorrectAnswers").text("You got " + incorrectAnswers + " wrong.")
+        
         $("#scorePercent").text((correctAnswers*5) + "%");
             $("#question").empty();
             $("#A").empty();
@@ -237,19 +236,21 @@ $(document).ready(function () {
             runningQuestion++;
             renderQuestion();
             $("#questionNumber").empty();
-            $("#questionNumber").append(runningQuestion + 1);
-            
-
+            $("#questionNumber").text(runningQuestion + 1 + "/20");
+        
 
         if (runningQuestion === lastQuestion) {
             $("#start").hide();
             $("#gamePage").hide();
-            $("#scoreContainer").show();
-            
+            $("#scoreContainer").show(); 
         }
-
-
     });
 
+
+    $("#restart").on("click", function() {
+        $("#start").show();
+        $("#gamePage").hide();
+        $("#scoreContainer").hide();
+    })
 
 })

@@ -173,7 +173,7 @@ $(document).ready(function () {
     // TIMER section
     var timer = $("#counter")
     var counter = 0;
-    var timeLeft = 90;
+    var timeLeft = 10;
 
 
     // "START" button click section
@@ -207,47 +207,49 @@ $(document).ready(function () {
 
     // Radio buttons for checking user answers
     // Setting variables for radio button function
-    var correctAnswers;
-    var incorrectAnswers;
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
 
 
 
     // Checking answers function
     $("input[type='radio']").on("click", function () {
-        correctAnswers = 0;
-        incorrectAnswers = 0;
+  
+
 
         var radioValue = $("input[name='radio']:checked").val();
         console.log("User Answer: " + radioValue);
         if (radioValue === questions[runningQuestion].correct) {
-            correctAnswers++;
+            correctAnswers+=1;
         } else {
             incorrectAnswers++;
         }
 
         console.log("Correct: " + correctAnswers);
+        $("#correctAnswers").text("You got " + correctAnswers + " right out of 20!");
         console.log("Incorrect: " + incorrectAnswers);
+        $("#incorrectAnswers").text("You got " + incorrectAnswers + " wrong.")
+        $("#scorePercent").text((correctAnswers*5) + "%");
+            $("#question").empty();
+            $("#A").empty();
+            $("#B").empty();
+            $("#C").empty();
+            runningQuestion++;
+            renderQuestion();
+            $("#questionNumber").empty();
+            $("#questionNumber").append(runningQuestion + 1);
+            
 
-        $("#question").empty();
-        $("#A").empty();
-        $("#B").empty();
-        $("#C").empty();
-        runningQuestion++;
-        renderQuestion();
-        $("#questionNumber").empty();
-        $("#questionNumber").append(runningQuestion + 1);
 
         if (runningQuestion === lastQuestion) {
             $("#start").hide();
             $("#gamePage").hide();
             $("#scoreContainer").show();
+            
         }
+
+
     });
-
-
-    $("#correctAnswers").append("You got " + correctAnswers + " right!")
-    $("#incorrectAnswers").append("You got " + incorrectAnswers + " wrong.")
-    $("#scorePercent").append("Score: " + (correctAnswers ** 5) + "%")
 
 
 })

@@ -173,7 +173,7 @@ $(document).ready(function () {
     // TIMER section
     var timer = $("#counter")
     var counter = 0;
-    var timeLeft = 7;
+    var timeLeft = 90;
 
 
     // "START" button click section

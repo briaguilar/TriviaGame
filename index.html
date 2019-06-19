@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>90s Trivia Game</title>
@@ -12,19 +11,17 @@
     <link rel="stylesheet" type="text/css" href="assets\css\style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-
 <body>
     <div id="container">
         <div id="start">
             <h1>Welcome to the '90s Trivia Game!</h1>
             <button type="button" class="btn btn-outline-success" id="starter">Start</button>
         </div>
-        <div id="gamePage">
-                
+        <div id="gamePage">    
             <div id="question"></div>
             <br>
             <div id="choices">
-                <input type='radio' name='radio' value='A' class="A"></input>
+                <input type='radio' name='radio' value='A' class="big A" id="radioA"></input>
                 <p class="choice" id="A"></p>
                 <br>
                 <input type='radio' name='radio' value='B' class="B">
@@ -33,21 +30,18 @@
                 <input type='radio' name='radio' value='C' class="C">
                 <p class="choice" id="C"></p></input>
                 <div id="questionNumber"></div>
-            </div>  
-            <div id="timer">
-                    <div id="counter"></div>
-                    <div id="btimeGauge"></div>
-                    <div id="timeGauge"></div>
-                </div>
-        </div>
+                <div id="timer"></div>
+            </div> 
+        </div> 
+                    
         <div id="scoreContainer">
             <div id="correctAnswers"></div>
             <div id="incorrectAnswers"></div>
-            <div id="scorePercent"></div>
+            <h3>Score:</h3><div id="scorePercent"></div>
+            <br>
+            <button type="button" id="restart" class="btn btn-outline-success">Play Again</button>
         </div>
     </div>
-
     <script src="assets/javascript/app.js"></script>
 </body>
-
 </html>

@@ -15,13 +15,6 @@ $(document).ready(function () {
             correct: "A"
         },
         {
-            quest: "Who is the lead singer of the Foo Fighters?",
-            choiceA: "Stephen Jenkins",
-            choiceB: "Dave Grohl",
-            choiceC: "Kurt Cobain",
-            correct: "B"
-        },
-        {
             quest: "Rap was just becoming well known in 90s. Which artist had the first number one rap single?",
             choiceA: "Vanilla Ice",
             choiceB: "Ice Cube",
@@ -48,6 +41,13 @@ $(document).ready(function () {
             choiceB: "Destiny's Child",
             choiceC: "TLC",
             correct: "C"
+        },
+        {
+            quest: "Who is the lead singer of the Foo Fighters?",
+            choiceA: "Kurt Cobain",
+            choiceB: "Dave Grohl",
+            choiceC: "Stephen Jenkins",
+            correct: "B"
         },
         {
             quest: "What film won the Oscar for the Best Picture in 1995?",
@@ -185,21 +185,20 @@ $(document).ready(function () {
         $("#scoreContainer").hide();
         setInterval(timeIt, 1000);
         renderQuestion();
-        $("#questionNumber").append(runningQuestion + 1)
+        $("#questionNumber").append(runningQuestion + 1 + "/20")
 
         function timeIt() {
             counter++;
-            $("#timer").html("Time left: " + (timeLeft - counter));
+            $("#timer").html((timeLeft - counter) + " secs");
 
-            if (timeLeft - counter === 0) {
+            if ((timeLeft - counter) === 0) {
                 $("#start").hide();
                 $("#gamePage").hide();
                 $("#scoreContainer").show();
             }
         }
     });
-
-
+    
 
 
 
@@ -207,47 +206,51 @@ $(document).ready(function () {
 
     // Radio buttons for checking user answers
     // Setting variables for radio button function
-    var correctAnswers;
-    var incorrectAnswers;
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
 
 
 
     // Checking answers function
     $("input[type='radio']").on("click", function () {
-        correctAnswers = 0;
-        incorrectAnswers = 0;
+  
+
 
         var radioValue = $("input[name='radio']:checked").val();
         console.log("User Answer: " + radioValue);
         if (radioValue === questions[runningQuestion].correct) {
-            correctAnswers++;
+            correctAnswers+=1;
         } else {
-            incorrectAnswers++;
+            incorrectAnswers+=1;
         }
 
         console.log("Correct: " + correctAnswers);
+        $("#correctAnswers").text("You got " + correctAnswers + "/20 right!");
         console.log("Incorrect: " + incorrectAnswers);
-
-        $("#question").empty();
-        $("#A").empty();
-        $("#B").empty();
-        $("#C").empty();
-        runningQuestion++;
-        renderQuestion();
-        $("#questionNumber").empty();
-        $("#questionNumber").append(runningQuestion + 1);
+        
+        $("#scorePercent").text((correctAnswers*5) + "%");
+            $("#question").empty();
+            $("#A").empty();
+            $("#B").empty();
+            $("#C").empty();
+            runningQuestion++;
+            renderQuestion();
+            $("#questionNumber").empty();
+            $("#questionNumber").text(runningQuestion + 1 + "/20");
+        
 
         if (runningQuestion === lastQuestion) {
             $("#start").hide();
             $("#gamePage").hide();
-            $("#scoreContainer").show();
+            $("#scoreContainer").show(); 
         }
     });
 
 
-    $("#correctAnswers").append("You got " + correctAnswers + " right!")
-    $("#incorrectAnswers").append("You got " + incorrectAnswers + " wrong.")
-    $("#scorePercent").append("Score: " + (correctAnswers ** 5) + "%")
-
+    $("#restart").on("click", function() {
+        $("#start").show();
+        $("#gamePage").hide();
+        $("#scoreContainer").hide();
+    })
 
 })
